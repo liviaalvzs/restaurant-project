@@ -8,6 +8,6 @@ Essa interface, feita usando HTML, CSS e JavaScript, simula uma palaforma - resp
 
 🛒 carrinho interativo que permite incrementar ou diminuir quantidades selecionadas
 
-![interface](projeto-final.png) 
+![interface](images/projeto-final.png) 
 
 
