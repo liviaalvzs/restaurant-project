@@ -54,7 +54,7 @@ alimentosJson.map((item, index)=>{
 
 
 // função p/ fechar o painel de infos
-function closeModal () {
+function closeFoodInfo () {
     c('.foodWindowArea').style.opacity = 0;
     setTimeout(()=>{
         c('.foodWindowArea').style.display = 'none';
@@ -63,7 +63,7 @@ function closeModal () {
 
 // saindo do painel de infos
 ca('.foodInfo--cancelButton, .foodInfo--cancelMobileButton').forEach((item)=>{
-    item.addEventListener('click', closeModal);
+    item.addEventListener('click', closeFoodInfo);
 });
 
 // botões de incrementar e reduzir quantidade
@@ -84,7 +84,6 @@ ca('.foodInfo--size').forEach((size, sizeIndex)=>{
     size.addEventListener('click', (e)=>{
         c('.foodInfo--size.selected').classList.remove('selected');
         size.classList.add('selected');
-        console.log( 'selecionei')
     });
 });
 
@@ -107,22 +106,24 @@ c('.foodInfo--addButton').addEventListener('click', ()=>{
             qt:infoAreaQt
         });
     }
-    updateCart();
-    closeModal();
+    updateCart(); // atualiza o carrinho
+    closeFoodInfo(); // fecha o painel de infos após adicionar ao carrinho o que deseja
 });
     
 
 
-
+// abrir carrinho casa exista algo na array
 c('.menu-openner').addEventListener('click', () => {
     if(cart.length > 0) {
         c('aside').style.left = '0';
-    }
+    } 
 });
 c('.menu-closer').addEventListener('click', ()=>{
     c('aside').style.left = '100vw';
 });
 
+
+// atualiza carrinho de acordo com as infos da array
 function updateCart() {
     c('.menu-openner span').innerHTML = cart.length;
 
@@ -140,6 +141,7 @@ function updateCart() {
 
             let cartItem = c('.models .cart--item').cloneNode(true);
 
+            // vendo qual o tamanho (P, M ou G) de acordo com o n° da key de tamanho
             let foodSizeName;
             switch(cart[i].size) {
                 case 0:
@@ -173,14 +175,16 @@ function updateCart() {
             c('.cart').append(cartItem);
         }
 
+        // adiciona desconto de 10%
         desconto = subtotal * 0.1;
-        total = subtotal - desconto;
+        total = subtotal - desconto; 
 
+        // mostra infos de preço
         c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`;
         c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`;
         c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`;
 
-    } else {
+    } else { // tira o carrinho da tela
         c('aside').classList.remove('show');
         c('aside').style.left = '100vw';
     }
