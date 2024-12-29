@@ -1,12 +1,12 @@
-# Projeto Restaurante 🍽️
+## Restaurant Project 🍽️
 
-Essa interface, feita usando HTML, CSS e JavaScript, simula uma palaforma - responsiva - de delivery. Conta com:
+### This interface, built using HTML, CSS, and JavaScript, simulates a responsive delivery platform. It includes:
 
-🖥️ visão geral dos alimentos 
+🖥️ an overview of food items
 
-🔍 página que mostra informações do alimento escolhido, além de e opções de tamanho e quantidade a serem selecionadas
+🔍 a page that displays information about the selected food, along with options to choose size and quantity
 
-🛒 carrinho interativo que permite incrementar ou diminuir quantidades selecionadas
+🛒 an interactive cart that allows users to increase or decrease the selected quantities
 
 ![interface](images/projeto-final.png) 
 
